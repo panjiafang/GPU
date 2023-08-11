@@ -44,12 +44,13 @@ sudo apt-get update
 sudo apt-get -y install cuda
 ```
 
-
 ## 安装Pytorch
 
 ```bash
 pip3 install torch torchvision torchaudio
 ```
+
+> 也可以安装Tensorflow，
 
 ## 安装ModelScope
 
@@ -57,11 +58,6 @@ pip3 install torch torchvision torchaudio
 pip install modelscope
 ```
 
-## 安装Transformers
-
-```bash
-pip install transformers -U
-```
 
 ## 环境变量设置
 ```bash
