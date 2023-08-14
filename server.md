@@ -52,12 +52,6 @@ pip3 install torch torchvision torchaudio
 
 > 也可以安装Tensorflow，
 
-## 安装ModelScope
-
-```bash
-pip install modelscope
-```
-
 
 ## 环境变量设置
 ```bash
