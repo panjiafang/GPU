@@ -1,3 +1,0 @@
-sentencepiece
-accelerate
-transformers==4.31.0
