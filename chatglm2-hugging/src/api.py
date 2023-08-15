@@ -7,6 +7,7 @@
 import time
 import torch
 import uvicorn
+import json
 from pydantic import BaseModel, Field
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,6 +15,7 @@ from contextlib import asynccontextmanager
 from typing import Any, Dict, List, Literal, Optional, Union
 from transformers import AutoTokenizer, AutoModel
 from sse_starlette.sse import ServerSentEvent, EventSourceResponse
+
 
 
 @asynccontextmanager
@@ -135,7 +137,7 @@ async def predict(query: str, history: List[List[str]], model_id: str):
         finish_reason=None
     )
     chunk = ChatCompletionResponse(model=model_id, choices=[choice_data], object="chat.completion.chunk")
-    yield "{}".format(chunk.json(exclude_unset=True, ensure_ascii=False))
+    yield json.dumps(chunk.model_dump_json(exclude_unset=True), ensure_ascii=False)
 
     current_length = 0
 
@@ -152,7 +154,7 @@ async def predict(query: str, history: List[List[str]], model_id: str):
             finish_reason=None
         )
         chunk = ChatCompletionResponse(model=model_id, choices=[choice_data], object="chat.completion.chunk")
-        yield "{}".format(chunk.json(exclude_unset=True, ensure_ascii=False))
+        yield json.dumps(chunk.model_dump_json(exclude_unset=True), ensure_ascii=False)
 
 
     choice_data = ChatCompletionResponseStreamChoice(
@@ -161,7 +163,7 @@ async def predict(query: str, history: List[List[str]], model_id: str):
         finish_reason="stop"
     )
     chunk = ChatCompletionResponse(model=model_id, choices=[choice_data], object="chat.completion.chunk")
-    yield "{}".format(chunk.json(exclude_unset=True, ensure_ascii=False))
+    yield json.dumps(chunk.model_dump_json(exclude_unset=True), ensure_ascii=False)
     yield '[DONE]'
 
 
