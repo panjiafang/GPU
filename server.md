@@ -50,8 +50,25 @@ sudo apt-get -y install cuda
 pip3 install torch torchvision torchaudio
 ```
 
-> 也可以安装Tensorflow，
+> 也可以安装Tensorflow
 
+## 安装Git LFS
+
+添加源
+
+```
+apt/deb repos: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+或者
+yum/rpm repos: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
+```
+
+安装
+
+```
+apt/deb: sudo apt-get install git-lfs
+或者
+yum/rpm: sudo yum install git-lfs
+```
 
 ## 环境变量设置
 ```bash
