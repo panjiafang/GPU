@@ -57,17 +57,30 @@ pip3 install torch torchvision torchaudio
 添加源
 
 ```
-apt/deb repos: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+apt/deb repos: 
+
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
 或者
-yum/rpm repos: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
+
+yum/rpm repos: 
+
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
 ```
 
 安装
 
 ```
-apt/deb: sudo apt-get install git-lfs
+apt/deb: 
+
+sudo apt-get install git-lfs
+
 或者
-yum/rpm: sudo yum install git-lfs
+
+yum/rpm: 
+
+sudo yum install git-lfs
+
 ```
 
 ## 环境变量设置
@@ -85,3 +98,18 @@ Consider adding this directory to PATH or, if you prefer to suppress this warnin
 保存之后
 
 `source .bashrc`
+
+## Python虚拟环境Venv
+    
+```bash 
+python3 -m venv xxx
+source xxx/bin/activate
+```
+
+> xxx为文件目录，`python3 -m venv xxx`在xxx文件夹下，里面包含了虚拟环境的所有文件
+
+```bash
+#退出虚拟环境
+xxx/bin/deactivate
+```
+
